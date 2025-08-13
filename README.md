@@ -250,7 +250,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🏆 Credits
 
-**SingleBiomes Team**
+**PLDevs TEAM**
 - Plugin development and maintenance
 - World generation algorithms
 - Multiverse integration
@@ -262,4 +262,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ for the Minecraft community**
+**Made with ❤️ By @kingtravs for the Minecraft community**
