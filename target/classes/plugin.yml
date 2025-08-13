@@ -1,0 +1,30 @@
+name: SingleBiomes
+version: '1.0.0'
+main: dev.kingtravs.singlebiomes.SingleBiomes
+api-version: 1.21
+authors: [KingTravs]
+description: Generate custom worlds with single biomes and plateau-style terrain
+website: https://github.com/KingTravs/SingleBiomes
+
+commands:
+  singlebiomes:
+    description: Main command for SingleBiomes plugin
+    usage: /<command> [help|generate <worldName> <biome>]
+    aliases: [sb, singlebiome]
+    permission: singlebiomes.use
+
+permissions:
+  singlebiomes.use:
+    description: Allows use of basic SingleBiomes commands
+    default: op
+  singlebiomes.generate:
+    description: Allows generating new SingleBiomes worlds
+    default: op
+  singlebiomes.admin:
+    description: Allows access to all SingleBiomes features
+    default: op
+    children:
+      singlebiomes.use: true
+      singlebiomes.generate: true
+
+softdepend: [Multiverse-Core]

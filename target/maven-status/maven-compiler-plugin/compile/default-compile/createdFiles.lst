@@ -1,0 +1,6 @@
+dev/kingtravs/singlebiomes/utils/ConfigManager.class
+dev/kingtravs/singlebiomes/commands/SingleBiomesCommand.class
+dev/kingtravs/singlebiomes/generator/SingleBiomeChunkGenerator.class
+dev/kingtravs/singlebiomes/generator/SingleBiomePopulator.class
+dev/kingtravs/singlebiomes/utils/MessageUtil.class
+dev/kingtravs/singlebiomes/SingleBiomes.class

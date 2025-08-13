@@ -1,92 +1,92 @@
-# SingleBiomes
+# SingleBiomes Plugin
 
-A production-quality Minecraft plugin for Paper/Spigot 1.21.4-1.21.8 that generates custom worlds where the entire terrain consists of a single biome with stepped, plateau-like terrain generation.
+**Version:** 1.0.0  
+**Author:** KingTravs  
+**Compatible with:** Paper/Spigot 1.21.4 - 1.21.8
 
-## 🌟 Features
+Generate custom Minecraft worlds where the entire terrain consists of a single biome with stepped, plateau-like terrain featuring 20-block wide "steps" that create natural staircase formations.
 
-- **Single-Biome Worlds**: Generate entire worlds using only one biome
-- **Stepped Plateau Terrain**: Unique 20-block wide stepped terrain generation creating natural staircase-like landscapes  
-- **5 Supported Biomes**: SNOWY_TAIGA, BADLANDS, DESERT, PLAINS, MUSHROOM_FIELDS
-- **Configurable Settings**: Customize plateau dimensions, block types, and generation parameters
-- **Multiverse Integration**: Compatible with Multiverse-Core for easy world management
-- **Professional Commands**: Full command system with tab completion and help
-- **Error Handling**: Robust validation and crash prevention
-- **Performance Optimized**: Efficient world generation with minimal server impact
+## 🌍 Features
 
-## 📋 Requirements
+- **Single Biome Worlds:** Generate entire worlds with just one biome
+- **Plateau Terrain:** Unique stepped, staircase-like terrain generation
+- **Configurable Settings:** Customize step height, width, and block types
+- **Multiple Biomes Supported:**
+  - SNOWY_TAIGA
+  - BADLANDS
+  - DESERT
+  - PLAINS
+  - MUSHROOM_FIELDS
+- **Multiverse Integration:** Full compatibility with Multiverse-Core
+- **Professional Commands:** Easy-to-use commands with tab completion
+- **Error Handling:** Robust validation and clear error messages
 
-- **Server Software**: Paper or Spigot 1.21.4 - 1.21.8
-- **Java Version**: Java 21 or higher
-- **Optional Dependencies**: Multiverse-Core (for enhanced world management)
-
-## 🚀 Installation
+## 📦 Installation
 
 1. **Download** the SingleBiomes.jar file
-2. **Place** it in your server's `plugins/` directory
-3. **Start/Restart** your server
+2. **Place** it in your server's `plugins/` folder
+3. **Restart** your server
 4. **Configure** the plugin by editing `plugins/SingleBiomes/config.yml` (optional)
-5. **Reload** the plugin with `/singlebiomes reload` or restart the server
+5. **Reload** or restart your server to apply configuration changes
+
+### Requirements
+
+- **Server Software:** Paper or Spigot
+- **Minecraft Version:** 1.21.4 - 1.21.8
+- **Java Version:** 21 or higher
+- **Optional:** Multiverse-Core (for enhanced world management)
 
 ## 🎮 Commands
 
-| Command | Description | Permission | Usage |
-|---------|-------------|------------|-------|
-| `/singlebiomes help` | Show help message | `singlebiomes.use` | `/singlebiomes help` |
-| `/singlebiomes generate <world> <biome>` | Create new SingleBiomes world | `singlebiomes.generate` | `/singlebiomes generate mydesert DESERT` |
-| `/singlebiomes info` | Show plugin information | `singlebiomes.use` | `/singlebiomes info` |
-| `/singlebiomes reload` | Reload configuration | `singlebiomes.admin` | `/singlebiomes reload` |
+### Main Commands
+
+| Command | Description | Permission |
+|---------|-------------|------------|
+| `/singlebiomes help` | Show help message and available biomes | `singlebiomes.use` |
+| `/singlebiomes generate <worldName> <biome>` | Create a new SingleBiomes world | `singlebiomes.generate` |
 
 ### Command Aliases
-- `/sb` - Short alias for `/singlebiomes`
-- `/sbiomes` - Alternative alias for `/singlebiomes`
 
-## 🔐 Permissions
+- `/sb` - Short alias for `/singlebiomes`
+- `/singlebiome` - Alternative alias
+
+### Examples
+
+```
+/singlebiomes help
+/singlebiomes generate desert_world DESERT
+/sb generate snowy_world SNOWY_TAIGA
+/singlebiomes generate badlands_test BADLANDS
+```
+
+## 🔧 Permissions
 
 | Permission | Description | Default |
 |------------|-------------|---------|
-| `singlebiomes.*` | Access to all SingleBiomes commands | OP |
-| `singlebiomes.use` | Use basic SingleBiomes commands | Everyone |
-| `singlebiomes.generate` | Generate SingleBiomes worlds | OP |
-| `singlebiomes.admin` | Access admin commands (reload) | OP |
-
-## 🌍 Supported Biomes
-
-- **SNOWY_TAIGA** - Snow-covered terrain with spruce decorations
-- **BADLANDS** - Red sand and terracotta formations with dead bush
-- **DESERT** - Sandy terrain with cactus decorations  
-- **PLAINS** - Grassy terrain with oak tree decorations
-- **MUSHROOM_FIELDS** - Mycelium terrain with mushroom decorations
+| `singlebiomes.use` | Basic plugin usage and help command | OP |
+| `singlebiomes.generate` | Create new SingleBiomes worlds | OP |
+| `singlebiomes.admin` | Access to all plugin features | OP |
 
 ## ⚙️ Configuration
 
-The plugin creates a `config.yml` file in the `plugins/SingleBiomes/` directory:
+The plugin creates a `config.yml` file with the following structure:
 
 ```yaml
-# SingleBiomes Plugin Configuration
-# Version: 1.0.0
-
 # Plugin Settings
 plugin:
-  show-startup-message: true
-  check-updates: true
+  show-startup-messages: true    # Show ASCII art on startup
+  debug-mode: false             # Enable debug logging
 
 # World Generation Settings
-world-generation:
-  # Default plateau step height (in blocks)
-  plateau-step-height: 4
-  
-  # Default plateau step width (in blocks) 
-  plateau-step-width: 20
-  
-  # Base world height (Y level where generation starts)
-  base-height: 64
-  
-  # Maximum height variation for plateaus
-  max-height-variation: 80
+generation:
+  plateau-step-height: 4        # Height of each step (blocks)
+  plateau-step-width: 20        # Width of each step (blocks)
+  base-height: 64              # Base Y-level for plateaus
+  max-height: 120              # Maximum plateau height
+  min-height: 60               # Minimum plateau height
 
-# Supported Biomes Configuration
+# Supported Biomes
 biomes:
-  # List of enabled biomes for world generation
   enabled:
     - SNOWY_TAIGA
     - BADLANDS
@@ -94,172 +94,136 @@ biomes:
     - PLAINS
     - MUSHROOM_FIELDS
   
-  # Block configuration for each biome
+  # Custom block types for each biome
   block-types:
-    SNOWY_TAIGA:
-      surface: SNOW_BLOCK
-      subsurface: DIRT
-      stone: STONE
-      decoration: SPRUCE_LOG
-    BADLANDS:
-      surface: RED_SAND
-      subsurface: RED_SANDSTONE
-      stone: TERRACOTTA
-      decoration: DEAD_BUSH
     DESERT:
       surface: SAND
       subsurface: SANDSTONE
-      stone: SANDSTONE
-      decoration: CACTUS
-    PLAINS:
-      surface: GRASS_BLOCK
-      subsurface: DIRT
-      stone: STONE
-      decoration: OAK_LOG
-    MUSHROOM_FIELDS:
-      surface: MYCELIUM
-      subsurface: DIRT
-      stone: STONE
-      decoration: RED_MUSHROOM
+      base: STONE
+    # ... (other biomes)
 
 # World Creation Settings
 world-settings:
-  world-type: NORMAL
-  generate-structures: true
-  spawn-protection: 16
-  spawn-monsters: true
-  spawn-animals: true
-
-# Command Settings
-commands:
-  tab-completion: true
-  detailed-help: true
-
-# Debug Settings
-debug:
-  enabled: false
-  log-generation: false
+  generate-structures: true     # Generate villages, dungeons, etc.
+  generate-decorations: true    # Generate trees, flowers, etc.
+  default-seed: 0              # Default seed (0 = random)
 ```
 
-## 🔗 Multiverse Integration
+### Customization Options
 
-SingleBiomes integrates seamlessly with Multiverse-Core:
+- **Plateau Dimensions:** Adjust `plateau-step-height` and `plateau-step-width` to change terrain characteristics
+- **Height Limits:** Modify `min-height` and `max-height` to control elevation range
+- **Block Types:** Customize surface, subsurface, and base blocks for each biome
+- **World Features:** Toggle structures and decorations on/off
 
-```bash
-# Create worlds using Multiverse commands
-/mv create mydesert normal -g SingleBiomes:DESERT
-/mv create snowyworld normal -g SingleBiomes:SNOWY_TAIGA
-/mv create badlands normal -g SingleBiomes:BADLANDS
-/mv create plains normal -g SingleBiomes:PLAINS
-/mv create mushroom normal -g SingleBiomes:MUSHROOM_FIELDS
+## 🌐 Multiverse Integration
 
-# Teleport to worlds
-/mv tp mydesert
+SingleBiomes is fully compatible with Multiverse-Core:
+
+### Automatic Registration
+When you create a world using `/singlebiomes generate`, it will automatically be registered with Multiverse if the plugin is installed.
+
+### Manual Creation via Multiverse
+```
+/mv create <worldName> normal -g SingleBiomes:<BIOME_NAME>
 ```
 
-## 📝 Usage Examples
-
-### Basic World Creation
-```bash
-# Create a desert world named "mydesert"
-/singlebiomes generate mydesert DESERT
-
-# Create a snowy world named "winter_world"  
-/singlebiomes generate winter_world SNOWY_TAIGA
-
-# Create a badlands world named "mesa"
-/singlebiomes generate mesa BADLANDS
+### Examples
 ```
-
-### With Multiverse-Core
-```bash
-# Create and configure with Multiverse
 /mv create desert_world normal -g SingleBiomes:DESERT
-/mv modify set animals false desert_world
-/mv modify set monsters true desert_world
+/mv create snowy_world normal -g SingleBiomes:SNOWY_TAIGA
+/mv create mushroom_world normal -g SingleBiomes:MUSHROOM_FIELDS
 ```
 
-## 🔧 Development
+## 🏗️ How It Works
 
-### Building from Source
+### Terrain Generation
+1. **Stepped Plateaus:** The generator creates terrain in 20-block wide steps
+2. **Height Variation:** Each step has a different height based on coordinates
+3. **Natural Stairs:** Results in natural staircase-like formations
+4. **Biome Consistency:** Entire world uses the same biome throughout
 
-1. **Clone** the repository
-2. **Ensure** you have Java 21 and Maven installed
-3. **Run** `mvn clean package`
-4. **Find** the compiled JAR in the `target/` directory
+### Block Layering
+- **Surface Layer:** Biome-appropriate surface blocks (grass, sand, mycelium, etc.)
+- **Subsurface Layer:** 2-3 blocks of subsurface material (dirt, sandstone, etc.)
+- **Base Layer:** Stone foundation with bedrock at Y=0
+- **Water Features:** Low areas automatically fill with water up to sea level
 
-### Project Structure
+## 🛠️ Building from Source
+
+If you want to compile the plugin yourself:
+
+### Prerequisites
+- Java 21 or higher
+- Maven 3.6 or higher
+- Git
+
+### Steps
+```bash
+git clone https://github.com/KingTravs/SingleBiomes.git
+cd SingleBiomes
+mvn clean package
 ```
-src/main/java/com/singlebiomes/plugin/
-├── SingleBiomesPlugin.java          # Main plugin class
-├── ConfigManager.java               # Configuration management
-├── commands/
-│   └── SingleBiomesCommand.java     # Command handling
-├── generator/
-│   ├── SingleBiomesGenerator.java   # World generator
-│   └── SingleBiomeProvider.java     # Biome provider
-└── integration/
-    └── MultiverseIntegration.java   # Multiverse integration
-```
+
+The compiled JAR will be in the `target/` directory.
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
-**World generation fails**
-- Check that the biome name is spelled correctly
-- Ensure the biome is enabled in config.yml
-- Verify server has sufficient memory
+**World Creation Fails**
+- Check that the biome name is spelled correctly and is supported
+- Ensure you have sufficient disk space
+- Verify server has proper permissions to create files
 
-**Multiverse integration not working**
-- Ensure Multiverse-Core is installed and enabled
-- Check server console for integration messages
-- Use correct syntax: `-g SingleBiomes:BIOME_NAME`
+**Generator Not Working**
+- Make sure you're using the correct generator syntax
+- Check console for error messages during world creation
+- Verify plugin is properly loaded (`/plugins` command)
 
-**Permission errors**
-- Verify user has required permissions
-- Check permission plugin configuration
-- Use `/singlebiomes info` to test basic access
+**Multiverse Issues**
+- Ensure Multiverse-Core is up to date
+- Check Multiverse configuration for conflicts
+- Try manual import: `/mv import <worldName> normal`
 
-## 📊 Performance
+### Getting Help
 
-SingleBiomes is optimized for performance:
-- **Async World Creation**: Worlds generate without blocking the main thread
-- **Efficient Algorithms**: Optimized plateau generation with minimal calculations
-- **Memory Conscious**: Low memory footprint during generation
-- **Chunk-based**: Generates terrain chunk by chunk for smooth performance
+1. Check the console for error messages
+2. Enable debug mode in config.yml
+3. Verify all permissions are set correctly
+4. Ensure server version compatibility
 
-## 🤝 Contributing
+## 📝 License
 
-We welcome contributions! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+```
+SingleBiomes Plugin License
+Copyright (c) 2025 KingTravs
 
-## 📄 License
+All rights reserved.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This plugin and its source code are the intellectual property of KingTravs.
 
-## 📞 Support
+You are NOT allowed to:
+- Redistribute this plugin in any form, free or paid
+- Re-upload this plugin or source code anywhere
+- Modify and distribute as your own
+- Resell this plugin or derivative works
 
-- **Issues**: Report bugs on GitHub Issues
-- **Discord**: Join our community server
-- **Wiki**: Check the GitHub Wiki for detailed guides
+You ARE allowed to:
+- Use on your own Minecraft servers
+- Modify source code for personal use only (do not distribute)
+- Share your server using this plugin
 
-## 🏆 Credits
+Any violation may result in legal action.
+By using or modifying this plugin, you agree to these terms.
 
-**PLDevs TEAM**
-- Plugin development and maintenance
-- World generation algorithms
-- Multiverse integration
+For permissions beyond this license, contact: KingTravs
+```
 
-**Special Thanks**
-- Paper/Spigot development team
-- Multiverse-Core developers
-- Minecraft modding community
+## 🤝 Support
+
+For support, bug reports, or feature requests, please contact **KingTravs**.
 
 ---
 
-**Made with ❤️ By @kingtravs for the Minecraft community**
+**Enjoy creating unique single-biome worlds with stepped plateau terrain!** 🏔️
