@@ -1,0 +1,79 @@
+# SingleBiomes Configuration File
+# Version: 1.0.0
+
+# Plugin Settings
+plugin:
+  # Show startup messages in console
+  show-startup-messages: true
+  # Debug mode for additional logging
+  debug-mode: false
+
+# World Generation Settings
+generation:
+  # Default plateau step height (in blocks)
+  plateau-step-height: 4
+  # Default plateau step width (in blocks)
+  plateau-step-width: 20
+  # Base world height (Y-level where plateaus start)
+  base-height: 64
+  # Maximum height variation for plateaus
+  max-height: 120
+  # Minimum height for plateaus
+  min-height: 60
+
+# Supported Biomes Configuration
+biomes:
+  # List of enabled biomes (must match Minecraft biome names exactly)
+  enabled:
+    - SNOWY_TAIGA
+    - BADLANDS
+    - DESERT
+    - PLAINS
+    - MUSHROOM_FIELDS
+  
+  # Custom block types for each biome (optional overrides)
+  block-types:
+    SNOWY_TAIGA:
+      surface: GRASS_BLOCK
+      subsurface: DIRT
+      base: STONE
+    BADLANDS:
+      surface: RED_SAND
+      subsurface: RED_SANDSTONE
+      base: STONE
+    DESERT:
+      surface: SAND
+      subsurface: SANDSTONE
+      base: STONE
+    PLAINS:
+      surface: GRASS_BLOCK
+      subsurface: DIRT
+      base: STONE
+    MUSHROOM_FIELDS:
+      surface: MYCELIUM
+      subsurface: DIRT
+      base: STONE
+
+# World Creation Settings
+world-settings:
+  # Default world type
+  world-type: NORMAL
+  # Generate structures (villages, dungeons, etc.)
+  generate-structures: true
+  # Generate decorations (trees, flowers, etc.)
+  generate-decorations: true
+  # Seed for world generation (0 = random)
+  default-seed: 0
+
+# Messages
+messages:
+  prefix: "&a[SingleBiomes] &r"
+  world-created: "&aSuccessfully created world '&f{world}&a' with biome '&f{biome}&a'!"
+  world-exists: "&cWorld '&f{world}&c' already exists!"
+  invalid-biome: "&cInvalid biome '&f{biome}&c'! Use /singlebiomes help for valid biomes."
+  invalid-world-name: "&cInvalid world name! Use only letters, numbers, underscores, and hyphens (max 32 characters)."
+  world-creation-failed: "&cFailed to create world '&f{world}&c'! Check console for details."
+  no-permission: "&cYou don't have permission to use this command!"
+  help-header: "&a&l=== SingleBiomes Help ==="
+  help-generate: "&f/singlebiomes generate <worldName> <biome> &7- Create a new single biome world"
+  help-footer: "&7Supported biomes: &f{biomes}"
