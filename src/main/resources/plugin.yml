@@ -1,0 +1,33 @@
+name: SingleBiomes
+version: '${project.version}'
+main: com.singlebiomes.plugin.SingleBiomesPlugin
+api-version: '1.21'
+description: A Minecraft plugin that generates custom worlds with single biomes and stepped plateau terrain
+author: SingleBiomes Team
+website: https://github.com/singlebiomes/SingleBiomes
+softdepend: [Multiverse-Core]
+
+commands:
+  singlebiomes:
+    description: Main command for SingleBiomes plugin
+    usage: /singlebiomes <help|generate>
+    aliases: [sb, sbiomes]
+    permission: singlebiomes.use
+    permission-message: You don't have permission to use this command.
+
+permissions:
+  singlebiomes.*:
+    description: Gives access to all SingleBiomes commands
+    children:
+      singlebiomes.use: true
+      singlebiomes.generate: true
+      singlebiomes.admin: true
+  singlebiomes.use:
+    description: Allows use of basic SingleBiomes commands
+    default: true
+  singlebiomes.generate:
+    description: Allows generation of SingleBiomes worlds
+    default: op
+  singlebiomes.admin:
+    description: Allows access to admin commands
+    default: op

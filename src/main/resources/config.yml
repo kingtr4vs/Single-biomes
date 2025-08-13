@@ -1,0 +1,94 @@
+# SingleBiomes Plugin Configuration
+# Version: 1.0.0
+
+# Plugin Settings
+plugin:
+  # Show startup message in console
+  show-startup-message: true
+  # Check for updates on startup
+  check-updates: true
+
+# World Generation Settings
+world-generation:
+  # Default plateau step height (in blocks)
+  plateau-step-height: 4
+  
+  # Default plateau step width (in blocks) 
+  plateau-step-width: 20
+  
+  # Base world height (Y level where generation starts)
+  base-height: 64
+  
+  # Maximum height variation for plateaus
+  max-height-variation: 80
+
+# Supported Biomes Configuration
+biomes:
+  # List of enabled biomes for world generation
+  enabled:
+    - SNOWY_TAIGA
+    - BADLANDS
+    - DESERT
+    - PLAINS
+    - MUSHROOM_FIELDS
+  
+  # Block configuration for each biome
+  block-types:
+    SNOWY_TAIGA:
+      surface: SNOW_BLOCK
+      subsurface: DIRT
+      stone: STONE
+      decoration: SPRUCE_LOG
+    BADLANDS:
+      surface: RED_SAND
+      subsurface: RED_SANDSTONE
+      stone: TERRACOTTA
+      decoration: DEAD_BUSH
+    DESERT:
+      surface: SAND
+      subsurface: SANDSTONE
+      stone: SANDSTONE
+      decoration: CACTUS
+    PLAINS:
+      surface: GRASS_BLOCK
+      subsurface: DIRT
+      stone: STONE
+      decoration: OAK_LOG
+    MUSHROOM_FIELDS:
+      surface: MYCELIUM
+      subsurface: DIRT
+      stone: STONE
+      decoration: RED_MUSHROOM
+
+# World Creation Settings
+world-settings:
+  # Default world type
+  world-type: NORMAL
+  
+  # Generate structures (villages, dungeons, etc.)
+  generate-structures: true
+  
+  # Default spawn protection radius
+  spawn-protection: 16
+  
+  # Allow monsters to spawn
+  spawn-monsters: true
+  
+  # Allow animals to spawn  
+  spawn-animals: true
+
+# Command Settings
+commands:
+  # Enable tab completion for biome names
+  tab-completion: true
+  
+  # Show detailed help messages
+  detailed-help: true
+
+# Debug Settings
+debug:
+  # Enable debug logging
+  enabled: false
+  
+  # Log world generation details
+  log-generation: false
