@@ -1,0 +1,54 @@
+name: SingleBiomes
+version: 1.0.0
+main: com.kingtravs.singlebiomes.SingleBiomes
+author: KingTravs
+description: Generate custom worlds with single biomes and stepped terrain
+website: https://github.com/KingTravs/SingleBiomes
+api-version: 1.21
+
+# Minecraft version compatibility
+folia-supported: true
+
+# Plugin dependencies (soft dependencies)
+softdepend:
+  - Multiverse-Core
+
+# Commands
+commands:
+  singlebiomes:
+    description: Main SingleBiomes command
+    usage: /<command> [help|generate] [args...]
+    aliases: [sb, sbiomes]
+    permission: singlebiomes.use
+    permission-message: "§cYou don't have permission to use SingleBiomes commands!"
+
+# Permissions
+permissions:
+  singlebiomes.use:
+    description: Allows use of basic SingleBiomes commands
+    default: op
+    children:
+      singlebiomes.help: true
+      
+  singlebiomes.help:
+    description: Allows viewing help information
+    default: true
+    
+  singlebiomes.generate:
+    description: Allows generating new SingleBiomes worlds
+    default: op
+    
+  singlebiomes.admin:
+    description: Full administrative access to SingleBiomes
+    default: op
+    children:
+      singlebiomes.use: true
+      singlebiomes.generate: true
+      singlebiomes.reload: true
+      
+  singlebiomes.reload:
+    description: Allows reloading plugin configuration
+    default: op
+
+# Load order
+load: STARTUP
