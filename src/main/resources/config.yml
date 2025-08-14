@@ -1,0 +1,72 @@
+# SingleBiomes Plugin Configuration
+# Author: KingTravs
+# Version: 1.0.0
+
+# World Generation Settings
+world-generation:
+  # Base height for terrain generation (Y-coordinate where steps start)
+  base-height: 64
+  
+  # Step width in blocks (how wide each plateau step is)
+  # Default: 20 blocks wide per step
+  step-width: 20
+  
+  # Step height is FIXED at 1 block (cannot be changed)
+  # This ensures consistent stepped terrain generation
+  step-height: 1
+
+# Supported Biomes Configuration
+# These are the only biomes supported by the plugin
+supported-biomes:
+  - "SNOWY_TAIGA"
+  - "BADLANDS" 
+  - "DESERT"
+  - "PLAINS"
+  - "MUSHROOM_FIELDS"
+
+# Biome-specific block configurations
+# These define what blocks are used for each biome type
+biome-blocks:
+  SNOWY_TAIGA:
+    surface: "SNOW_BLOCK"
+    underground: "DIRT"
+    description: "Snowy terrain with snow blocks"
+    
+  BADLANDS:
+    surface: "TERRACOTTA"
+    underground: "RED_SANDSTONE"
+    description: "Desert mesa with terracotta formations"
+    
+  DESERT:
+    surface: "SAND"
+    underground: "SANDSTONE"
+    description: "Sandy desert terrain"
+    
+  PLAINS:
+    surface: "GRASS_BLOCK"
+    underground: "DIRT"
+    description: "Grassy plains with dirt underground"
+    
+  MUSHROOM_FIELDS:
+    surface: "MYCELIUM"
+    underground: "DIRT"
+    description: "Mushroom island terrain with mycelium"
+
+# Plugin Settings
+plugin:
+  # Enable debug messages in console
+  debug: false
+  
+  # Enable startup branding message
+  startup-branding: true
+  
+  # Maximum world name length
+  max-world-name-length: 16
+
+# World Generation Limits
+limits:
+  # Maximum surface height (to prevent exceeding world height)
+  max-surface-height: 310
+  
+  # Minimum surface height
+  min-surface-height: 5
